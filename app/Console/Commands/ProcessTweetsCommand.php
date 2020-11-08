@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands;
 
+use App\Events\TweetsEvent;
 use App\Exceptions\PreventTwitterJobFromRunning;
 use App\Models\Config;
 use App\Models\Tweet;
@@ -57,8 +58,13 @@ class ProcessTweetsCommand extends Command
                 }
 
                 $tweet = TweetMapper::responseToTweetArray($tweet);
-                Tweet::create($tweet);
+                try {
+                    Tweet::create($tweet);
+                } catch (\Exception $exception) {
+                    $this->warn("Duplicate tweet " . $exception->getMessage());
+                }
                 $this->info("Successfully imported " . $tweet['text']);
+                broadcast(new TweetsEvent($tweet))->toOthers();
             })
             ->startListening();
     }
