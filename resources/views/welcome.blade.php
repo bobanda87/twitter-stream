@@ -81,19 +81,21 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Twitter streaming app
+                </div>
+                <div class="links">
+                    <p>
+                        This project is used for collecting tweets for specified hashtags. <br/>
+                        It populates our database with tweets that are streamed via Tweets Stream API.
+                    </p>
+                    <p>
+                        <a href="http://178.62.240.93:3001/" target="_blank">Application is available here</a>.
+
+                    <p>
+                        To start fetching tweets, navigate to <a href="{{ route('tweets-process') }}" target="_blank">fetching page</a>.
+                    </p>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://vapor.laravel.com">Vapor</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
             </div>
         </div>
     </body>

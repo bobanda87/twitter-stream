@@ -20,4 +20,4 @@ Route::get('/', function () {
 
 Route::get('/tweets-process', function () {
     Artisan::queue('tweets:process');
-});
+})->name('tweets-process');
